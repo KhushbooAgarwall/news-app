@@ -12,7 +12,7 @@ const Navbar = ({setArticles}) => {
     const handleSearch = async (e) => {
         const search = e.target.value;
         try {
-            const res = await axios.get(` https://newsapi.org/v2/top-headlines?q=${search}&apiKey=${import.meta.env.VITE_API_KEY}`)
+            const res = await axios.get(`/.netlify/functions/news?q=${search}`);
             setArticles(res.data.articles);
         } catch (error) {
             console.log(error);
